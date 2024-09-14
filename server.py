@@ -1,4 +1,4 @@
-import socket # Permite comunicación usuario - servidor
+import socket # Permite comunicación cliente - servidor
 import threading # Permite manejar varios clientes al tiempo
 
 customers = [] # Lista para almacenar clientes
@@ -13,7 +13,7 @@ def handle_client(client_socket): # Manejar conexiones de clientes de forma indi
             request = client_socket.recv(1024).decode('utf-8') # Recibir mensaje de cliente
             if request == 'VER_CLIENTES':
                 response = '\n'.join([f"Cliente: {c['nombre']}, Mascota: {c['nombre_mascota']}" for c in customers]) or "No hay clientes todavía." # Ver todos los clientes al tiempo en un solo mensaje atravesando la lista de clientes
-            elif request.startswith('ANADIR_CLIENTE'):
+            elif request.startswith('AGREGAR_CLIENTE'):
                 _, name, pet_name = request.split(',') # Separar el mensaje para extraer datos del cliente y mascota
                 customers.append({'nombre': name, 'nombre_mascota': pet_name}) # Añadir datos de cliente a la lista
                 response = f"{name} y {pet_name} han sido añadidos exitosamente." # Notificación de proceso exitoso

@@ -16,3 +16,10 @@
 
 ### `start-server()`
 - Inicializa el servidor y lo deja a la espera de conexiones con clientes
+
+## `client.py`
+
+### `start_client()`
+- Inicializa el cliente especificando dirección IP y puerto de conexión
+- Muestra menú principal
+- Envía solicitudes y maneja respuestas del servidor
